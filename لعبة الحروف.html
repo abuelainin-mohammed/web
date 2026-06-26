@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="referrer" content="no-referrer">
+    <title>أكاديمية الحروف السحرية | د. أبو العينين</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for kids friendly icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Fredoka for English & Cairo for Arabic) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&family=Fredoka:wght=400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --font-arabic: 'Cairo', sans-serif;
+            --font-english: 'Fredoka', sans-serif;
+        }
+        body {
+            font-family: 'Cairo', 'Fredoka', sans-serif;
+            background-color: #e0f2fe;
+            background-image: radial-gradient(#bae6fd 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            height: 100dvh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            touch-action: none;
+        }
+        .english-mode {
+            font-family: 'Fredoka', sans-serif;
+            direction: ltr;
+        }
+        
+        /* Interactive Cinema Cabinet Concept */
+        #console-cabinet {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100dvh;
+            max-height: 100dvh;
+            overflow: hidden;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* 16:9 Widescreen Aspect Constraint on Desktop/Tablet Landscapes */
+        @media (orientation: landscape) {
+            #console-cabinet {
+                max-width: 177.78vh; /* 16:9 ratio of the height */
+                height: 100vh;
+                max-height: 100vh;
+                border-left: 8px solid #facc15;
+                border-right: 8px solid #facc15;
+                box-shadow: 0 0 50px rgba(14, 165, 233, 0.15);
+                border-radius: 40px;
+                margin: auto;
+                padding: 16px;
+            }
+        }
+
+        /* Portrait constraint on mobile screens */
+        @media (orientation: portrait) {
+            #console-cabinet {
+                width: 100%;
+                height: 100dvh;
+                padding: 8px;
+                border-top: 6px solid #facc15;
+            }
+        }
+        
+        /* 3D Giant Kid-Friendly Bubbly Buttons & Cards for 3-6 Years */
+        .bubbly-btn {
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 6px 0 0 rgba(0,0,0,0.15);
+        }
+        .bubbly-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 0 rgba(0,0,0,0.15);
+        }
+        .bubbly-btn:hover {
+            transform: scale(1.03) translateY(-1px);
+        }
+        .bubbly-btn:active:hover {
+            transform: translateY(4px);
+        }
+        
+        /* Elastic Hover Effects for Letter Cards */
+        .letter-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.4);
+            box-shadow: 0 8px 0 0 rgba(14, 165, 233, 0.15);
+            border-radius: 24px !important;
+        }
+        .letter-card:hover {
+            transform: translateY(-5px) scale(1.04) rotate(1deg);
+            box-shadow: 0 12px 0 0 rgba(14, 165, 233, 0.2);
+        }
+        
+        /* Floating Clouds Background Animation */
+        @keyframes floatCloud {
+            0% { transform: translateX(-150px); }
+            100% { transform: translateX(calc(100vw + 150px)); }
+        }
+        .cloud-element {
+            position: absolute;
+            background: white;
+            border-radius: 100px;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(2px);
+        }
+        .cloud-element.style-1 {
+            width: 120px; height: 40px;
+            animation: floatCloud 32s linear infinite;
+        }
+        .cloud-element.style-1::before { width: 50px; height: 50px; top: -25px; left: 15px; content: ''; position: absolute; background: white; border-radius: 100px; }
+        .cloud-element.style-1::after { width: 70px; height: 70px; top: -35px; right: 15px; content: ''; position: absolute; background: white; border-radius: 100px; }
+
+        .cloud-element.style-2 {
+            width: 180px; height: 60px;
+            animation: floatCloud 45s linear infinite;
+            animation-delay: -15s;
+        }
+        .cloud-element.style-2::before { width: 80px; height: 80px; top: -40px; left: 20px; content: ''; position: absolute; background: white; border-radius: 100px; }
+        .cloud-element.style-2::after { width: 100px; height: 100px; top: -50px; right: 25px; content: ''; position: absolute; background: white; border-radius: 100px; }
+
+        /* Mascot Idle breathing animation */
+        @keyframes mascotBreathing {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-3px) scale(1.03); }
+        }
+        .mascot-idle {
+            animation: mascotBreathing 2.5s ease-in-out infinite;
+        }
+        
+        /* Mascot cheering pop */
+        @keyframes mascotCheer {
+            0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+            30% { transform: translateY(-25px) scale(1.25) rotate(12deg); }
+            50% { transform: translateY(0) scale(1) rotate(-10deg); }
+            70% { transform: translateY(-8px) scale(1.1) rotate(4deg); }
+        }
+        .mascot-celebrate {
+            animation: mascotCheer 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Wiggle animation for interactive illustration detail cards */
+        @keyframes wiggleIllustration {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-8deg) scale(1.15); }
+            75% { transform: rotate(8deg) scale(1.15); }
+        }
+        .animate-wiggle {
+            animation: wiggleIllustration 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        /* Custom Widescreen Scrollbars for Widescreen viewports */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+            border: 2px solid #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Hiding scrollbar utility */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+        .animate-shake {
+            animation: shake 0.4s ease-in-out;
+        }
+
+        /* Giant visual pulsing to guide 3-6 yo kids */
+        @keyframes pulseGuide {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+            50% { transform: scale(1.04); box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+        }
+        .kid-focus-pulse {
+            animation: pulseGuide 2s infinite;
+        }
+
+        /* Pulsate animation for splash screen start button */
+        @keyframes splashPulsate {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4); }
+            50% { transform: scale(1.06); box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6); }
+        }
+        .splash-pulse-btn {
+            animation: splashPulsate 2s infinite ease-in-out;
+        }
+
+        /* Prevent system gestures on drawing and catch boards */
+        #drawing-canvas, #guide-canvas, #catch-canvas {
+            touch-action: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Clouds backdrop layer -->
+    <div class="cloud-element style-1 top-12" style="animation-delay: -5s;"></div>
+    <div class="cloud-element style-2 top-48" style="animation-delay: -20s;"></div>
+    <div class="cloud-element style-1 top-2/3" style="animation-delay: -10s;"></div>
+    <div class="cloud-element style-2 top-3/4" style="animation-delay: -30s;"></div>
+
+    <!-- Celebration Confetti Overlay Canvas -->
+    <canvas id="confetti-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-50"></canvas>
+
+    <!-- Magical Splash Screen Block -->
+    <div id="splash-screen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center p-4 bg-gradient-to-br from-sky-400 via-pink-300 to-amber-200 transition-all duration-700 ease-out select-none overflow-y-auto">
+        <!-- Floating background shapes in Splash -->
+        <div class="absolute top-10 left-10 w-20 h-20 bg-white/20 rounded-full blur-xl animate-pulse"></div>
+        <div class="absolute bottom-16 right-12 w-32 h-32 bg-amber-300/20 rounded-full blur-2xl animate-pulse" style="animation-delay: 2s;"></div>
+        
+        <!-- Splash Container Cabinet -->
+        <div class="bg-white/95 backdrop-blur-md rounded-[40px] border-8 border-amber-300 p-6 md:p-10 max-w-lg w-full text-center shadow-2xl transform transition-all duration-500 scale-100 flex flex-col items-center gap-6 relative">
+            
+            <!-- Animated Giant Mascot Showcase -->
+            <div class="w-24 h-24 md:w-32 md:h-32 mascot-idle drop-shadow-xl">
+                <svg viewBox="0 0 100 100" class="w-full h-full">
+                    <polygon points="50,5 64,36 98,36 70,57 81,91 50,70 19,91 30,57 2,36 36,36" fill="#facc15" stroke="#eab308" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="38" cy="48" r="6" fill="#1e293b"/>
+                    <circle cx="62" cy="48" r="6" fill="#1e293b"/>
+                    <circle cx="36" cy="46" r="2" fill="#ffffff"/>
+                    <circle cx="60" cy="46" r="2" fill="#ffffff"/>
+                    <circle cx="28" cy="55" r="5" fill="#fb7185" opacity="0.9"/>
+                    <circle cx="72" cy="55" r="5" fill="#fb7185" opacity="0.9"/>
+                    <path d="M42,56 Q50,66 58,56" fill="none" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <!-- App Main Titles -->
+            <div>
+                <h1 class="text-2xl md:text-4xl font-black text-slate-800 tracking-tight leading-none">أكاديمية الحروف السحرية</h1>
+                <p class="text-xs md:text-sm font-bold text-slate-500 mt-2">تعلم الحروف العربية والإنجليزية بنقرة واحدة ممتعة!</p>
+            </div>
+
+            <!-- Prominent Loving Family Dedication Panel (الاهداء) -->
+            <div class="w-full bg-gradient-to-r from-amber-50 to-pink-50 border-4 border-amber-200 rounded-3xl p-4 md:p-6 shadow-sm flex flex-col items-center gap-2.5 relative overflow-hidden">
+                <div class="absolute -top-3 -right-3 w-12 h-12 bg-pink-100/40 rounded-full blur-md"></div>
+                
+                <!-- Pulsating Heart Icon -->
+                <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center shadow-inner">
+                    <i class="fas fa-heart text-rose-500 animate-pulse text-lg"></i>
+                </div>
+                
+                <!-- Dedication Texts -->
+                <div class="text-center flex flex-col gap-1.5">
+                    <h2 class="text-sm md:text-lg font-black text-slate-800 leading-tight">
+                        تطوير / ابوالعينين محمد ابوالعينين
+                    </h2>
+                    <p class="text-xs md:text-sm font-bold text-rose-500 bg-rose-50/80 px-4 py-1 rounded-full border border-rose-100 inline-block self-center">
+                        🎁 هدية لاحفاده الكرام 🎁
+                    </p>
+                    <div class="w-16 h-0.5 bg-slate-200 my-1 mx-auto"></div>
+                    <p class="text-[10px] md:text-xs font-medium text-slate-500 leading-normal" style="font-family: 'Fredoka', sans-serif;">
+                        Developed by / Dr. Abuelainin Mohammed Abuelainin <br>
+                        <span class="text-rose-400 font-bold">- A gift to his grandchildren -</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Language Quick Selection Area on Splash -->
+            <div class="flex items-center gap-3 bg-slate-100/80 p-1.5 rounded-2xl w-full justify-center">
+                <span class="text-xs font-black text-slate-600">اختر اللغة / Language:</span>
+                <button onclick="setSplashLanguage('ar')" id="splash-lang-ar" class="px-3 py-1 rounded-xl text-xs font-black bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-sm transition-all">
+                    العربية 🇸🇦
+                </button>
+                <button onclick="setSplashLanguage('en')" id="splash-lang-en" class="px-3 py-1 rounded-xl text-xs font-black text-slate-600 hover:bg-white transition-all">
+                    English 🇬🇧
+                </button>
+            </div>
+
+            <!-- Play Start Button -->
+            <button onclick="dismissSplashScreen()" class="splash-pulse-btn w-full bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 text-white font-black py-4 rounded-3xl border-b-8 border-orange-600 text-lg md:text-xl shadow-lg transition-transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2">
+                <span id="splash-start-text">ابدأ اللعب السحري! 🌟</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN APP CABINET CONSOLE -->
+    <div id="console-cabinet" class="shadow-2xl flex flex-col justify-between overflow-hidden relative z-10">
+        
+        <!-- HEADER: Brand logo, languages and consolidated interactive status icons -->
+        <header class="w-full px-2 py-2 flex items-center justify-between gap-2 border-b border-sky-100/40 shrink-0">
+            <!-- Logo and Title Area with Mascot -->
+            <div class="flex items-center gap-2">
+                <!-- Animated interactive Mascot Lulu -->
+                <div id="mascot-lulu" class="w-12 h-12 md:w-16 md:h-16 mascot-idle cursor-pointer drop-shadow-md select-none transition-all" onclick="cheerMascotManual()">
+                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <polygon points="50,5 64,36 98,36 70,57 81,91 50,70 19,91 30,57 2,36 36,36" fill="#facc15" stroke="#eab308" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="38" cy="48" r="6" fill="#1e293b"/>
+                        <circle cx="62" cy="48" r="6" fill="#1e293b"/>
+                        <circle cx="36" cy="46" r="2" fill="#ffffff"/>
+                        <circle cx="60" cy="46" r="2" fill="#ffffff"/>
+                        <circle cx="28" cy="55" r="5" fill="#fb7185" opacity="0.9"/>
+                        <circle cx="72" cy="55" r="5" fill="#fb7185" opacity="0.9"/>
+                        <path d="M42,56 Q50,66 58,56" fill="none" stroke="#1e293b" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                
+                <div>
+                    <h1 id="app-title" class="text-sm md:text-xl font-black text-slate-800 tracking-tight leading-none">المنصة التفاعلية لتعليم الحروف</h1>
+                    <p id="app-subtitle" class="text-[9px] md:text-xs font-bold text-slate-500 mt-0.5 hidden sm:block">تعلم الحروف العربية والإنجليزية بطريقة ممتعة!</p>
+                </div>
+            </div>
+
+            <!-- Language and Consolidated Sound Icons Panel (Compact & High Capacity) -->
+            <div class="flex items-center gap-1 bg-white/95 p-1 rounded-2xl border-2 border-sky-100 shadow-sm shrink-0">
+                <button id="btn-lang-ar" onclick="switchLanguage('ar')" class="px-2.5 py-1.5 rounded-xl font-black text-xs transition-all duration-300 flex items-center gap-1 bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-sm">
+                    <span>العربية 🇸🇦</span>
+                </button>
+                <button id="btn-lang-en" onclick="switchLanguage('en')" class="px-2.5 py-1.5 rounded-xl font-black text-xs transition-all duration-300 flex items-center gap-1 text-slate-600 hover:bg-slate-50">
+                    <span>English 🇬🇧</span>
+                </button>
+                
+                <div class="w-px h-4 bg-slate-200 mx-0.5"></div>
+                
+                <!-- Compact Interactive Audio Engine Toggle Button -->
+                <button id="btn-tts-toggle" onclick="toggleTtsEngine()" class="p-2 rounded-xl bg-sky-50 text-slate-700 hover:bg-sky-100 transition-all font-bold text-xs flex items-center justify-center gap-1 shadow-sm bubbly-btn relative group" title="تبديل مخرج الصوت">
+                    <span id="tts-icon-status" class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span id="tts-engine-icon-container" class="text-xs md:text-sm">
+                        <i class="fa-solid fa-cloud text-sky-600"></i>
+                    </span>
+                </button>
+                
+                <div class="w-px h-4 bg-slate-200 mx-0.5"></div>
+                
+                <!-- Fullscreen Toggle Icon Button -->
+                <button id="btn-fullscreen" onclick="toggleFullscreen()" class="p-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all font-bold text-xs flex items-center justify-center shadow-sm bubbly-btn" title="الشاشة الكاملة">
+                    <i class="fas fa-expand text-xs"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Navigation Tab list -->
+        <div class="px-2 py-1 shrink-0">
+            <div class="grid grid-cols-4 gap-1 bg-sky-200/30 p-1 rounded-2xl border-2 border-sky-100/50">
+                <button id="tab-btn-explore" onclick="activateTab('explore')" class="tab-btn py-2.5 px-1.5 rounded-xl font-black text-[11px] md:text-sm flex flex-col sm:flex-row items-center justify-center gap-1 transition-all bg-white text-slate-800 shadow-sm border-b-2 border-sky-400">
+                    <span class="text-center">استكشف 🌟</span>
+                </button>
+                <button id="tab-btn-trace" onclick="activateTab('trace')" class="tab-btn py-2.5 px-1.5 rounded-xl font-black text-[11px] md:text-sm flex flex-col sm:flex-row items-center justify-center gap-1 transition-all text-slate-700 hover:bg-white/50">
+                    <span class="text-center">تتبع 🎨</span>
+                </button>
+                <button id="tab-btn-match" onclick="activateTab('match')" class="tab-btn py-2.5 px-1.5 rounded-xl font-black text-[11px] md:text-sm flex flex-col sm:flex-row items-center justify-center gap-1 transition-all text-slate-700 hover:bg-white/50">
+                    <span class="text-center">مطابقة 🧩</span>
+                </button>
+                <button id="tab-btn-catch" onclick="activateTab('catch')" class="tab-btn py-2.5 px-1.5 rounded-xl font-black text-[11px] md:text-sm flex flex-col sm:flex-row items-center justify-center gap-1 transition-all text-slate-700 hover:bg-white/50">
+                    <span class="text-center">صائد 🎈</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- PLAYGROUND SCREENS VIEWPORT (Fills exactly the remaining height) -->
+        <div class="flex-1 min-h-0 bg-white/95 rounded-3xl p-3 md:p-4 border-4 border-amber-300 relative overflow-hidden flex flex-col justify-between m-2">
+            
+            <!-- SCREEN 1: Exploration Board with Premium Carousel -->
+            <div id="screen-explore" class="tab-screen flex-1 flex flex-col justify-between overflow-hidden h-full">
+                <div class="text-center shrink-0">
+                    <h2 id="exp-title" class="text-sm md:text-xl font-black text-slate-800 leading-none">استكشاف الحروف والكلمات السحرية</h2>
+                    <p id="exp-desc" class="text-[10px] md:text-xs text-slate-500 mt-1 leading-none">اضغط على أي حرف لتستمع لنطقه ومفرداته المصورة!</p>
+                </div>
+                
+                <!-- Bubbly Carousel Wrapper with Safe Side Arrows -->
+                <div class="flex-1 min-h-0 flex items-center justify-between w-full mt-2.5 gap-2 sm:gap-6 px-1 sm:px-4 overflow-hidden">
+                    <!-- Left Navigate Button (Outside Viewport) -->
+                    <button id="carousel-prev" onclick="scrollCarousel(-1)" class="bubbly-btn w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 border-4 border-white text-white text-lg sm:text-xl font-black flex items-center justify-center shadow-lg active:scale-95 shrink-0 transition-all hover:scale-110">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Carousel Scrollable Viewport (Separated physically from buttons) -->
+                    <div id="carousel-viewport" class="flex-1 overflow-x-auto scroll-smooth flex items-center gap-4 py-4 h-full no-scrollbar select-none">
+                        <!-- Dynamic letters slides loaded here -->
+                    </div>
+
+                    <!-- Right Navigate Button (Outside Viewport) -->
+                    <button id="carousel-next" onclick="scrollCarousel(1)" class="bubbly-btn w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 border-4 border-white text-white text-lg sm:text-xl font-black flex items-center justify-center shadow-lg active:scale-95 shrink-0 transition-all hover:scale-110">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- SCREEN 2: Smart Tracing Screen -->
+            <div id="screen-trace" class="tab-screen hidden flex-1 flex flex-col justify-between overflow-hidden h-full">
+                <div class="text-center shrink-0">
+                    <h2 id="trace-title" class="text-sm md:text-xl font-black text-slate-800 leading-none">تتبع الحروف وكتابتها بدقة</h2>
+                    <p id="trace-desc" class="text-[10px] md:text-xs text-slate-500 mt-1 leading-none">تتبع المسار المضيء والنقاط لتعليم كتابة الحرف!</p>
+                </div>
+
+                <div class="flex-1 min-h-0 flex flex-col md:flex-row gap-3 items-center justify-center mt-2 overflow-hidden">
+                    <!-- Letter select panel -->
+                    <div class="w-full md:w-1/3 flex flex-col gap-2 shrink-0">
+                        <label id="trace-sel-lbl" class="text-xs font-black text-slate-600">اختر حرفاً للتتبع:</label>
+                        <div id="trace-letter-selector" class="flex flex-wrap gap-1.5 max-h-16 md:max-h-36 overflow-y-auto p-2 bg-sky-50 border-2 border-sky-100/60 rounded-2xl">
+                            <!-- Populated on start -->
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mt-0.5">
+                            <button onclick="triggerTracingDemo()" class="bubbly-btn bg-gradient-to-r from-amber-400 to-orange-400 text-white rounded-xl py-2 font-black text-xs border-b-2 border-orange-600 kid-focus-pulse">
+                                <span id="trace-btn-demo">علمني 🎓</span>
+                            </button>
+                            <button onclick="clearTracingCanvas()" class="bubbly-btn bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl py-2 font-black text-xs border-b-2 border-slate-300">
+                                <span id="trace-btn-clear">مسح 🧹</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Board Area -->
+                    <div class="flex-1 min-h-0 flex flex-col items-center justify-center gap-2 w-full h-full">
+                        <div class="relative w-full max-w-[180px] md:max-w-[220px] aspect-square bg-slate-900 border-4 border-amber-400 rounded-3xl overflow-hidden shadow-md flex items-center justify-center shrink-0">
+                            <!-- Background Grid Layer -->
+                            <div class="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#475569_1px,transparent_1px),linear-gradient(to_bottom,#475569_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                            <div class="absolute left-0 right-0 top-1/2 border-t border-dashed border-red-400 pointer-events-none"></div>
+                            
+                            <!-- Static Guide Canvas -->
+                            <canvas id="guide-canvas" width="220" height="220" class="absolute inset-0 pointer-events-none z-10 w-full h-full"></canvas>
+                            <!-- Interactive Drawing Canvas -->
+                            <canvas id="drawing-canvas" width="220" height="220" class="absolute inset-0 z-20 cursor-crosshair w-full h-full"></canvas>
+                        </div>
+
+                        <!-- Tracing Tool Options -->
+                        <div class="w-full max-w-[180px] md:max-w-[220px] flex items-center justify-between gap-2 bg-sky-50 p-1.5 rounded-xl border-2 border-sky-100/60 shrink-0">
+                            <div class="flex items-center gap-1.5">
+                                <div id="trace-brush-dot" class="w-3.5 h-3.5 rounded-full bg-emerald-500"></div>
+                                <span id="trace-brush-lbl" class="text-[10px] font-black text-slate-600">فرشاة</span>
+                            </div>
+                            <div class="flex gap-1">
+                                <button onclick="setBrushColor('#10b981')" class="w-5 h-5 rounded-full bg-emerald-500 border border-white ring-1 ring-transparent hover:ring-sky-400 transition-all"></button>
+                                <button onclick="setBrushColor('#3b82f6')" class="w-5 h-5 rounded-full bg-blue-500 border border-white ring-1 ring-transparent hover:ring-sky-400 transition-all"></button>
+                                <button onclick="setBrushColor('#f43f5e')" class="w-5 h-5 rounded-full bg-rose-500 border border-white ring-1 ring-transparent hover:ring-sky-400 transition-all"></button>
+                                <button onclick="setBrushColor('#eab308')" class="w-5 h-5 rounded-full bg-yellow-500 border border-white ring-1 ring-transparent hover:ring-sky-400 transition-all"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCREEN 3: Matching Game Screen -->
+            <div id="screen-match" class="tab-screen hidden flex-1 flex flex-col justify-between overflow-hidden h-full">
+                <!-- Top compact guidance header -->
+                <div class="text-center shrink-0">
+                    <h2 id="match-title" class="text-xs sm:text-lg md:text-xl font-black text-slate-800 leading-none">مطابقة الحروف بالصور والكلمات</h2>
+                    <p id="match-desc" class="text-[10px] md:text-xs text-slate-500 mt-1 leading-none">ابحث عن الصورة الجميلة والكلمة التي تطابق الحرف!</p>
+                </div>
+
+                <!-- Main balanced responsive layout container -->
+                <div class="flex-1 min-h-0 flex flex-col lg:flex-row gap-3 items-stretch justify-center w-full max-w-4xl mx-auto mt-2 overflow-hidden">
+                    
+                    <!-- Left Dashboard: Target card, play audio button & stats stacked elegantly -->
+                    <div class="flex flex-row lg:flex-col items-center justify-between lg:justify-center gap-2 sm:gap-3 bg-indigo-50/50 p-2 sm:p-3 rounded-2xl border border-indigo-100/50 shrink-0 lg:w-1/4">
+                        <!-- Big Target Card and play sound side-by-side -->
+                        <div class="flex items-center gap-2 lg:flex-col lg:gap-3 w-full justify-center">
+                            <div id="match-letter-card" class="w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 bg-gradient-to-br from-indigo-500 via-indigo-600 to-purple-600 rounded-2xl lg:rounded-3xl flex items-center justify-center text-white text-3xl sm:text-4xl lg:text-5xl font-black shadow-lg border-4 border-white shrink-0 kid-focus-pulse">
+                                أ
+                            </div>
+                            <div class="flex flex-col gap-1 lg:items-center">
+                                <button id="match-btn-listen" onclick="playMatchTargetAudio()" class="bubbly-btn bg-white hover:bg-sky-50 text-indigo-700 px-3 py-1.5 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-1 shadow-sm border border-indigo-100 shrink-0">
+                                    <i class="fa-solid fa-volume-high text-xs sm:text-sm"></i>
+                                    <span>استمع للحرف 🔊</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Mini scores panel -->
+                        <div class="flex flex-col gap-1 text-slate-700 w-full max-w-[150px] lg:max-w-none text-right lg:text-center justify-center bg-white/85 p-2 rounded-xl border border-indigo-100/30">
+                            <div class="text-[10px] sm:text-xs font-black">
+                                <span id="match-lbl-score">النقاط:</span> <span id="match-score" class="text-emerald-500 font-black text-xs sm:text-sm">0</span>
+                            </div>
+                            <div class="text-[10px] sm:text-xs font-black border-t border-indigo-50 mt-1 pt-1">
+                                <span id="match-lbl-q">السؤال:</span> <span id="match-current-idx" class="text-blue-500 font-black text-xs sm:text-sm">1/5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel: Grid with strictly 2 columns and 2 rows matching exact remaining height -->
+                    <div id="match-choices-container" class="flex-1 min-h-0 grid grid-cols-2 grid-rows-2 gap-2 sm:gap-3 p-1">
+                        <!-- Generated Choice Cards will fill height and width completely -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCREEN 4: Balloon Letters Catching Game -->
+            <div id="screen-catch" class="tab-screen hidden flex-1 flex flex-col justify-between overflow-hidden h-full">
+                <div class="text-center shrink-0">
+                    <h2 id="catch-title" class="text-sm md:text-xl font-black text-slate-800 leading-none">صائد البالونات والحروف الطائرة</h2>
+                    <p id="catch-desc" class="text-[10px] md:text-xs text-slate-500 mt-1 leading-none">حرك السلة يميناً ويساراً لصيد الحرف الصحيح!</p>
+                </div>
+
+                <div class="flex-1 min-h-0 flex flex-col items-center gap-2 mt-1 overflow-hidden">
+                    <!-- Statistics status bar (Expanded from max-w-[420px] to max-w-3xl for full HD screen integration) -->
+                    <div class="w-full max-w-3xl grid grid-cols-3 gap-2 bg-sky-50 p-2 sm:p-3 rounded-2xl border-2 border-sky-100/50 text-center shrink-0">
+                        <div class="text-[11px] md:text-sm font-black text-slate-700">
+                            <span id="catch-lbl-score">النقاط:</span> <span id="catch-score" class="text-emerald-500 font-extrabold text-xs md:text-base">0</span>
+                        </div>
+                        <div class="text-[11px] md:text-sm font-black text-slate-700">
+                            <span id="catch-lbl-miss">المفقودة:</span> <span id="catch-missed" class="text-rose-500 font-extrabold text-xs md:text-base">0/3</span>
+                        </div>
+                        <div class="text-[11px] md:text-sm font-black text-slate-800 bg-sky-100 py-1 px-2.5 rounded-xl flex items-center justify-center gap-1">
+                            <span id="catch-lbl-target">اصطد:</span> <span id="catch-target-letter" class="text-sky-600 font-black text-xs md:text-base">أ</span>
+                        </div>
+                    </div>
+
+                    <!-- Arcade Game Canvas Board Container (Expanded to max-w-3xl with giant touch targets) -->
+                    <div class="relative w-full max-w-3xl flex-1 min-h-0 bg-gradient-to-b from-sky-200 via-sky-100 to-amber-50 rounded-3xl overflow-hidden shadow-inner border-4 border-sky-200/60 touch-none">
+                        <canvas id="catch-canvas" class="absolute inset-0 block cursor-none w-full h-full"></canvas>
+                        
+                        <!-- Game Over overlay layer -->
+                        <div id="catch-gameover-overlay" class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm flex flex-col items-center justify-center gap-4 hidden z-30">
+                            <div class="text-white text-center">
+                                <h3 id="catch-over-title" class="text-xl md:text-3xl font-black text-rose-400">انتهت اللعبة! 🎈</h3>
+                                <p id="catch-over-desc" class="text-xs md:text-sm text-slate-300 mt-1">لقد فقدت الكثير من البالونات الصحيحة!</p>
+                                <p class="text-sm md:text-lg font-black mt-2 text-yellow-300"><span id="catch-over-lbl-score">النقاط النهائية:</span> <span id="catch-final-score" class="text-base md:text-xl">0</span></p>
+                            </div>
+                            <button id="catch-btn-restart" class="bubbly-btn bg-emerald-400 text-white rounded-2xl px-6 py-3 font-black text-xs md:text-sm border-b-4 border-emerald-600">
+                                <span>لعب مجدداً 🔄</span>
+                            </button>
+                        </div>
+
+                        <!-- Giant, kid-friendly touch buttons (Enlarged to w-16/w-20 for little thumbs) -->
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between pointer-events-none z-20 touch-none">
+                            <button id="touch-btn-left" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/95 backdrop-blur-md active:bg-white border-4 border-sky-300 text-sky-600 text-xl font-black flex items-center justify-center shadow-2xl pointer-events-auto touch-none active:scale-90 transition-transform"><i class="fa-solid fa-arrow-left"></i></button>
+                            <button id="touch-btn-right" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/95 backdrop-blur-md active:bg-white border-4 border-sky-300 text-sky-600 text-xl font-black flex items-center justify-center shadow-2xl pointer-events-auto touch-none active:scale-90 transition-transform"><i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER: Credits and dedications with animated pulsing heart -->
+        <footer class="w-full text-center py-1.5 shrink-0 border-t border-sky-100 bg-white/60">
+            <p class="text-[10px] md:text-xs font-black text-sky-900 flex items-center justify-center gap-1 leading-none">
+                <i class="fas fa-heart text-rose-500 animate-pulse text-xs"></i> 
+                <span id="footer-text">تطوير / ابوالعينين محمد ابوالعينين - هدية لاحفاده</span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT PROGRAMMING AND DATABASE LOGIC -->
+    <script>
+        // Web engine security guard: fallback polyfill for older browsers/iPads lacking Canvas rounded rectangles
+        if (typeof CanvasRenderingContext2D.prototype.roundRect !== 'function') {
+            CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+                if (typeof r === 'undefined') r = 0;
+                if (typeof r === 'number') {
+                    r = {tl: r, tr: r, br: r, bl: r};
+                } else {
+                    var defaultRadius = {tl: 0, tr: 0, br: 0, bl: 0};
+                    for (var side in defaultRadius) {
+                        r[side] = r[side] || defaultRadius[side];
+                    }
+                }
+                this.beginPath();
+                this.moveTo(x + r.tl, y);
+                this.lineTo(x + w - r.tr, y);
+                this.quadraticCurveTo(x + w, y, x + w, y + r.tr);
+                this.lineTo(x + w, y + h - r.br);
+                this.quadraticCurveTo(x + w, y + h, x + w - r.br, y + h);
+                this.lineTo(x + r.bl, y + h);
+                this.quadraticCurveTo(x, y + h, x, y + h - r.bl);
+                this.lineTo(x, y + r.tl);
+                this.quadraticCurveTo(x, y, x + r.tl, y);
+                this.closePath();
+                return this;
+            };
+        }
+
+        const locales = {
+            ar: {
+                logo: "أ ب",
+                title: "المنصة التفاعلية لتعليم الحروف",
+                subtitle: "تعلم الحروف العربية والإنجليزية بطريقة ممتعة!",
+                tabExplore: "استكشف 🌟",
+                tabTrace: "تتبع 🎨",
+                tabMatch: "مطابقة 🧩",
+                tabCatch: "صائد 🎈",
+                expTitle: "استكشاف الحروف والكلمات السحرية",
+                expDesc: "تصفح واضغط على أي حرف لتستمع لنطقه ومفرداته المصورة!",
+                traceTitle: "تتبع الحروف وكتابتها بدقة",
+                traceDesc: "تتبع المسار المضيء والنقاط لتعليم كتابة الحرف!",
+                traceSelLbl: "اختر حرفاً للتتبع:",
+                traceBtnDemo: "علمني 🎓",
+                traceBtnClear: "مسح 🧹",
+                traceBrushLbl: "فرشاة",
+                matchTitle: "مطابقة الحروف بالصور والكلمات",
+                matchDesc: "ابحث عن الصورة الجميلة والكلمة التي تطابق الحرف!",
+                matchScore: "النقاط:",
+                matchQ: "السؤال:",
+                matchBtnListen: "استمع للحرف مجدداً 🔊",
+                catchTitle: "صائد البالونات والحروف الطائرة",
+                catchDesc: "حرك السلة يميناً ويساراً لصيد الحرف الصحيح!",
+                catchScore: "النقاط:",
+                catchMiss: "المفقودة:",
+                catchTarget: "اصطد الحرف:",
+                catchOverTitle: "انتهت اللعبة! 🎈",
+                catchOverDesc: "لقد فقدت الكثير من البالونات الصحيحة!",
+                catchOverScore: "النقاط النهائية:",
+                catchBtnRestart: "لعب مجدداً 🔄",
+                footerText: "تطوير / ابوالعينين محمد ابوالعينين - هدية لاحفاده",
+                guideExplore: "استكشف الحروف والكلمات بلمسة سحرية!",
+                guideTrace: "لوّن الحرف الجميل بيدك!",
+                guideMatch: "أين الصورة الصحيحة؟ ابحث عنها!",
+                guideCatch: "اصطد البالونات الطائرة الحاملة للحرف!",
+                splashStart: "ابدأ اللعب السحري! 🌟"
+            },
+            en: {
+                logo: "A B",
+                title: "Interactive Letters Academy",
+                subtitle: "Learn Arabic and English letters in a fun way!",
+                tabExplore: "Explore 🌟",
+                tabTrace: "Trace 🎨",
+                tabMatch: "Match 🧩",
+                tabCatch: "Catcher 🎈",
+                expTitle: "Explore Magical Letters & Words",
+                expDesc: "Slide & tap any letter to hear its speech and see magical illustration!",
+                traceTitle: "Perfect Letter Handwriting Tracing",
+                traceDesc: "Trace the glowing dotted path guides to master writing!",
+                traceSelLbl: "Select a letter:",
+                traceBtnDemo: "Show Me 🎓",
+                traceBtnClear: "Clear 🧹",
+                traceBrushLbl: "Pen",
+                matchTitle: "Match Alphabets to Words",
+                matchDesc: "Find the beautiful illustration and word that matches!",
+                matchScore: "Score:",
+                matchQ: "Question:",
+                matchBtnListen: "Listen to Letter 🔊",
+                catchTitle: "Balloon Alphabet Catching",
+                catchDesc: "Move the basket left and right to catch target letters!",
+                catchScore: "Score:",
+                catchMiss: "Missed:",
+                catchTarget: "Catch:",
+                catchOverTitle: "Game Over! 🎈",
+                catchOverDesc: "You missed too many correct balloons!",
+                catchOverScore: "Final Score:",
+                catchBtnRestart: "Play Again 🔄",
+                footerText: "Developed by / Dr. Abuelainin Mohammed Abuelainin - A gift to his grandchildren",
+                guideExplore: "Tap the letters to learn together!",
+                guideTrace: "Color the beautiful letter with your finger!",
+                guideMatch: "Where is the correct picture? Find it!",
+                guideCatch: "Catch the flying balloons carrying the target letter!",
+                splashStart: "Start Magical Play! 🌟"
+            }
+        };
+
+        const arabicLetters = [
+            { letter: "أ", word: "أسد", emoji: "🦁", path: [[110, 40, 110, 120], [90, 60, 110, 40, 130, 60]], color: "from-amber-50 to-amber-100 border-amber-200 text-amber-800" },
+            { letter: "ب", word: "بطة", emoji: "🦆", path: [[60, 100, 60, 130, 160, 130, 160, 100], [110, 160, 110, 161]], color: "from-blue-50 to-blue-100 border-blue-200 text-blue-800" },
+            { letter: "ت", word: "تفاحة", emoji: "🍎", path: [[60, 100, 60, 130, 160, 130, 160, 100], [95, 80, 95, 81], [125, 80, 125, 81]], color: "from-red-50 to-red-100 border-red-200 text-red-800" },
+            { letter: "ث", word: "ثعلب", emoji: "🦊", path: [[60, 100, 60, 130, 160, 130, 160, 100], [95, 80, 95, 81], [125, 80, 125, 81], [110, 65, 110, 66]], color: "from-orange-50 to-orange-100 border-orange-200 text-orange-800" },
+            { letter: "ج", word: "جمل", emoji: "🐫", path: [[75, 65, 145, 65], [110, 65, 145, 100, 110, 150, 70, 115], [105, 110, 105, 111]], color: "from-amber-50 to-amber-100 border-amber-200 text-amber-800" },
+            { letter: "ح", word: "حمار وحشي", emoji: "🦓", path: [[75, 65, 145, 65], [110, 65, 145, 100, 110, 150, 70, 115]], color: "from-slate-50 to-slate-100 border-slate-200 text-slate-800" },
+            { letter: "خ", word: "خروف", emoji: "🐑", path: [[75, 65, 145, 65], [110, 65, 145, 100, 110, 150, 70, 115], [110, 45, 110, 46]], color: "from-emerald-50 to-emerald-100 border-emerald-200 text-emerald-800" },
+            { letter: "د", word: "ديك", emoji: "🐓", path: [[130, 80, 90, 100, 90, 135, 140, 135]], color: "from-rose-50 to-rose-100 border-rose-200 text-rose-800" },
+            { letter: "ذ", word: "ذئب", emoji: "🐺", path: [[130, 80, 90, 100, 90, 135, 140, 135], [110, 60, 110, 61]], color: "from-violet-50 to-violet-100 border-violet-200 text-violet-800" },
+            { letter: "ر", word: "رمان", emoji: "🍉", path: [[105, 80, 112, 100, 91, 150, 56, 160]], color: "from-lime-50 to-lime-100 border-lime-200 text-lime-800" },
+            { letter: "ز", word: "زرافة", emoji: "🦒", path: [[105, 80, 112, 100, 91, 150, 56, 160], [112, 60, 112, 61]], color: "from-yellow-50 to-yellow-100 border-yellow-200 text-yellow-800" },
+            { letter: "س", word: "سمكة", emoji: "🐟", path: [[150, 80, 140, 100, 125, 100, 120, 80, 110, 100, 95, 100, 90, 80, 85, 130, 40, 130]], color: "from-sky-50 to-sky-100 border-sky-200 text-sky-800" },
+            { letter: "ش", word: "شمس", emoji: "☀️", path: [[150, 80, 140, 100, 125, 100, 120, 80, 110, 100, 95, 100, 90, 80, 85, 130, 40, 130], [140, 60, 140, 61], [120, 50, 120, 51], [100, 60, 100, 61]], color: "from-amber-50 to-amber-100 border-amber-200 text-amber-800" },
+            { letter: "ص", word: "صقر", emoji: "🦅", path: [[90, 110, 125, 80, 155, 110, 85, 110, 78, 150, 35, 150]], color: "from-cyan-50 to-cyan-100 border-cyan-200 text-cyan-800" },
+            { letter: "ض", word: "ضفدع", emoji: "🐸", path: [[90, 110, 125, 80, 155, 110, 85, 110, 78, 150, 35, 150], [122, 60, 122, 61]], color: "from-green-50 to-green-100 border-green-200 text-green-800" },
+            { letter: "ط", word: "طائرة", emoji: "✈️", path: [[90, 110, 125, 80, 155, 110, 78, 110], [112, 50, 112, 110]], color: "from-blue-50 to-blue-100 border-blue-200 text-blue-800" },
+            { letter: "ظ", word: "ظبي", emoji: "🦌", path: [[90, 110, 125, 80, 155, 110, 78, 110], [112, 50, 112, 110], [133, 65, 133, 65]], color: "from-orange-50 to-orange-100 border-orange-200 text-orange-800" },
+            { letter: "ع", word: "عصفور", emoji: "🐦", path: [[140, 65, 105, 65, 105, 100, 140, 100], [140, 100, 91, 100, 91, 155, 140, 155]], color: "from-teal-50 to-teal-100 border-teal-200 text-teal-800" },
+            { letter: "غ", word: "غزال", emoji: "🦌", path: [[140, 65, 105, 65, 105, 100, 140, 100], [140, 100, 91, 100, 91, 155, 140, 155], [120, 45, 120, 46]], color: "from-amber-50 to-amber-100 border-amber-200 text-amber-800" },
+            { letter: "ف", word: "فيل", emoji: "🐘", path: [[125, 110, 140, 90, 155, 100, 140, 115, 65, 115, 65, 80], [140, 65, 140, 66]], color: "from-indigo-50 to-indigo-100 border-indigo-200 text-indigo-800" },
+            { letter: "ق", word: "قرد", emoji: "🐒", path: [[125, 110, 140, 90, 155, 100, 140, 115, 78, 115, 65, 150, 105, 150], [130, 65, 130, 66], [150, 65, 150, 66]], color: "from-yellow-50 to-yellow-100 border-yellow-200 text-yellow-800" },
+            { letter: "ك", word: "كلب", emoji: "🐕", path: [[140, 60, 100, 60, 100, 135, 140, 135], [120, 100, 112, 107, 122, 115]], color: "from-neutral-50 to-neutral-100 border-neutral-200 text-neutral-800" },
+            { letter: "ل", word: "ليمون", emoji: "🍋", path: [[140, 60, 140, 140, 90, 140, 90, 105]], color: "from-yellow-50 to-yellow-100 border-yellow-200 text-yellow-800" },
+            { letter: "م", word: "موز", emoji: "🍌", path: [[112, 80, 133, 80, 133, 100, 112, 100, 112, 155]], color: "from-yellow-50 to-yellow-100 border-yellow-200 text-yellow-800" },
+            { letter: "ن", word: "نحلة", emoji: "🐝", path: [[140, 85, 140, 135, 85, 135, 85, 85], [112, 70, 112, 71]], color: "from-amber-50 to-amber-100 border-amber-200 text-amber-800" },
+            { letter: "هـ", word: "هلال", emoji: "🌙", path: [[140, 130, 85, 130, 85, 80, 140, 80, 140, 110, 100, 110]], color: "from-sky-50 to-sky-100 border-sky-200 text-sky-800" },
+            { letter: "و", word: "ورق", emoji: "🍃", path: [[105, 110, 120, 90, 133, 100, 120, 115, 100, 155, 70, 155]], color: "from-green-50 to-green-100 border-green-200 text-green-800" },
+            { letter: "ي", word: "يد", emoji: "🖐️", path: [[140, 85, 112, 85, 100, 105, 120, 125, 91, 150, 56, 130]], color: "from-orange-50 to-orange-100 border-orange-200 text-orange-800" }
+        ];
+
+        const englishLetters = [
+            { letter: "A", word: "Apple", emoji: "🍎", path: [[110, 40, 70, 140], [110, 40, 150, 140], [85, 105, 135, 105]], color: "from-red-50 to-red-100 border-red-200 text-red-800" },
+            { letter: "B", word: "Bear", emoji: "🐻", path: [[85, 40, 85, 140], [85, 40, 125, 40, 125, 85, 85, 85], [85, 85, 133, 85, 133, 140, 85, 140]], color: "from-amber-50 to-amber-100 border-amber-200 text-amber-800" },
+            { letter: "C", word: "Cat", emoji: "🐱", path: [[140, 55, 100, 55, 85, 90, 100, 125, 140, 125]], color: "from-yellow-50 to-yellow-100 border-yellow-200 text-yellow-800" },
+            { letter: "D", word: "Dog", emoji: "🐶", path: [[85, 40, 85, 140], [85, 40, 133, 40, 133, 140, 85, 140]], color: "from-sky-50 to-sky-100 border-sky-200 text-sky-800" },
+            { letter: "E", word: "Elephant", emoji: "🐘", path: [[85, 40, 85, 140], [85, 40, 133, 40], [85, 90, 120, 90], [85, 140, 133, 140]], color: "from-purple-50 to-purple-100 border-purple-200 text-purple-800" },
+            { letter: "F", word: "Frog", emoji: "🐸", path: [[85, 40, 85, 140], [85, 40, 133, 40], [85, 90, 120, 90]], color: "from-emerald-50 to-emerald-100 border-emerald-200 text-emerald-800" },
+            { letter: "G", word: "Giraffe", emoji: "🦒", path: [[140, 55, 100, 55, 85, 90, 100, 125, 140, 125, 140, 95, 120, 95]], color: "from-amber-50 to-amber-100 border-amber-200 text-amber-800" },
+            { letter: "H", word: "Horse", emoji: "🐴", path: [[80, 40, 80, 140], [140, 40, 140, 140], [80, 90, 140, 90]], color: "from-orange-50 to-orange-100 border-orange-200 text-orange-800" },
+            { letter: "I", word: "Ice-cream", emoji: "🍦", path: [[85, 40, 140, 40], [112, 40, 112, 140], [85, 140, 140, 140]], color: "from-rose-50 to-rose-100 border-rose-200 text-rose-800" },
+            { letter: "J", word: "Juice", emoji: "🥤", path: [[91, 40, 145, 40], [120, 40, 120, 120, 85, 120, 85, 100]], color: "from-red-50 to-red-100 border-red-200 text-red-800" },
+            { letter: "K", word: "Kangaroo", emoji: "🦘", path: [[85, 40, 85, 140], [133, 40, 85, 90, 133, 140]], color: "from-yellow-50 to-yellow-100 border-yellow-200 text-yellow-800" },
+            { letter: "L", word: "Lion", emoji: "🦁", path: [[85, 40, 85, 140], [85, 140, 133, 140]], color: "from-amber-50 to-amber-100 border-amber-200 text-amber-800" },
+            { letter: "M", word: "Monkey", emoji: "🐒", path: [[70, 140, 70, 40, 110, 90, 150, 40, 150, 140]], color: "from-amber-50 to-amber-100 border-amber-200 text-amber-800" },
+            { letter: "N", word: "Nest", emoji: "🪺", path: [[78, 140, 78, 40, 133, 140, 133, 40]], color: "from-stone-50 to-stone-100 border-stone-200 text-stone-800" },
+            { letter: "O", word: "Owl", emoji: "🦉", path: [[112, 40, 85, 60, 85, 120, 112, 140, 140, 120, 140, 60, 112, 40]], color: "from-purple-50 to-purple-100 border-purple-200 text-purple-800" },
+            { letter: "P", word: "Panda", emoji: "🐼", path: [[85, 40, 85, 140], [85, 40, 133, 40, 133, 90, 85, 90]], color: "from-neutral-50 to-neutral-100 border-neutral-200 text-neutral-800" },
+            { letter: "Q", word: "Queen", emoji: "👸", path: [[112, 40, 85, 60, 85, 120, 112, 140, 140, 120, 140, 60, 112, 40], [120, 110, 148, 140]], color: "from-rose-50 to-rose-100 border-rose-200 text-rose-800" },
+            { letter: "R", word: "Rabbit", emoji: "🐰", path: [[85, 40, 85, 140], [85, 40, 133, 40, 133, 90, 85, 90], [85, 90, 133, 140]], color: "from-sky-50 to-sky-100 border-sky-200 text-sky-800" },
+            { letter: "S", word: "Sun", emoji: "☀️", path: [[133, 55, 100, 55, 85, 75, 112, 95, 133, 115, 100, 140, 70, 125]], color: "from-yellow-50 to-yellow-100 border-yellow-200 text-yellow-800" },
+            { letter: "T", word: "Tiger", emoji: "🐯", path: [[78, 40, 148, 40], [112, 40, 112, 140]], color: "from-orange-50 to-orange-100 border-orange-200 text-orange-800" },
+            { letter: "U", word: "Umbrella", emoji: "☂️", path: [[78, 40, 78, 120, 112, 140, 145, 120, 145, 40]], color: "from-indigo-50 to-indigo-100 border-indigo-200 text-indigo-800" },
+            { letter: "V", word: "Vase", emoji: "🏺", path: [[78, 40, 112, 140, 145, 40]], color: "from-neutral-50 to-neutral-100 border-neutral-200 text-neutral-800" },
+            { letter: "W", word: "Watermelon", emoji: "🍉", path: [[70, 40, 85, 140, 112, 85, 140, 140, 155, 40]], color: "from-emerald-50 to-emerald-100 border-emerald-200 text-emerald-800" },
+            { letter: "X", word: "Xylophone", emoji: "🪘", path: [[78, 40, 145, 140], [145, 40, 78, 140]], color: "from-red-50 to-red-100 border-red-200 text-red-800" },
+            { letter: "Y", word: "Yak", emoji: "🐂", path: [[78, 40, 112, 85, 145, 40], [112, 85, 112, 140]], color: "from-amber-50 to-amber-100 border-amber-200 text-amber-800" },
+            { letter: "Z", word: "Zebra", emoji: "🦓", path: [[78, 40, 145, 40, 78, 140, 145, 140]], color: "from-slate-50 to-slate-100 border-slate-200 text-slate-800" }
+        ];
+
+        // Global State variables and movement keys
+        window.isMovingLeft = false;
+        window.isMovingRight = false;
+        window.tracingEventsInitialized = false;
+        window.catchEventsInitialized = false;
+
+        let currentLanguage = 'ar';
+        let currentActiveTab = 'explore';
+        let activeDatabase = arabicLetters;
+        let ttsEngineMode = 'cloud'; 
+        let matchTimeoutId = null;
+        let tracingTimeouts = [];
+
+        // Safe interactive floating notification system
+        function showFeedbackMessage(text) {
+            const existing = document.getElementById('bubbly-toast');
+            if (existing) existing.remove();
+            
+            const toast = document.createElement('div');
+            toast.id = "bubbly-toast";
+            toast.className = "fixed top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 text-white font-black py-4 px-8 rounded-full border-4 border-white shadow-2xl z-[150] text-center text-sm md:text-lg animate-bounce select-none pointer-events-none";
+            toast.innerText = text;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+                setTimeout(() => toast.remove(), 500);
+            }, 2500);
+        }
+
+        // Confetti Celebration System
+        const ConfettiEngine = {
+            canvas: null,
+            ctx: null,
+            particles: [],
+            animationId: null,
+            
+            init() {
+                this.canvas = document.getElementById('confetti-canvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.resize();
+                window.addEventListener('resize', () => this.resize());
+            },
+            
+            resize() {
+                if (this.canvas) {
+                    this.canvas.width = window.innerWidth;
+                    this.canvas.height = window.innerHeight;
+                }
+            },
+            
+            spawn(x, y) {
+                const colors = ['#f43f5e', '#3b82f6', '#10b981', '#facc15', '#a855f7', '#ff7849'];
+                const spawnX = (x !== undefined && x !== null) ? x : (window.innerWidth / 2);
+                const spawnY = (y !== undefined && y !== null) ? y : (window.innerHeight / 3);
+
+                for (let i = 0; i < 40; i++) {
+                    this.particles.push({
+                        x: spawnX,
+                        y: spawnY,
+                        vx: (Math.random() - 0.5) * 8,
+                        vy: (Math.random() - 0.5) * 8 - 3,
+                        size: Math.random() * 6 + 6,
+                        color: colors[Math.floor(Math.random() * colors.length)],
+                        rotation: Math.random() * Math.PI * 2,
+                        rotationSpeed: (Math.random() - 0.5) * 0.15,
+                        alpha: 1,
+                        decay: Math.random() * 0.02 + 0.015
+                    });
+                }
+                if (!this.animationId) {
+                    this.tick();
+                }
+            },
+            
+            tick() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const p = this.particles[i];
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += 0.2; 
+                    p.rotation += p.rotationSpeed;
+                    p.alpha -= p.decay;
+                    
+                    this.ctx.save();
+                    this.ctx.translate(p.x, p.y);
+                    this.ctx.rotate(p.rotation);
+                    this.ctx.fillStyle = p.color;
+                    this.ctx.textBaseline = 'middle';
+                    this.ctx.textAlign = 'center';
+                    this.ctx.globalAlpha = p.alpha;
+                    this.ctx.font = `${p.size * 1.5}px Arial`;
+                    this.ctx.fillText("⭐", 0, 0);
+                    this.ctx.restore();
+                    
+                    if (p.alpha <= 0) {
+                        this.particles.splice(i, 1);
+                    }
+                }
+                
+                if (this.particles.length > 0) {
+                    this.animationId = requestAnimationFrame(() => this.tick());
+                } else {
+                    this.animationId = null;
+                }
+            }
+        };
+
+        // Mascot Controller (Lulu)
+        const MascotController = {
+            element: null,
+            cheerTimeout: null,
+            
+            init() {
+                this.element = document.getElementById('mascot-lulu');
+            },
+            
+            cheer() {
+                if (!this.element) return;
+                this.element.classList.remove('mascot-idle');
+                this.element.classList.add('mascot-celebrate');
+                
+                if (this.cheerTimeout) clearTimeout(this.cheerTimeout);
+                this.cheerTimeout = setTimeout(() => {
+                    this.element.classList.remove('mascot-celebrate');
+                    this.element.classList.add('mascot-idle');
+                }, 1200);
+            },
+            
+            shake() {
+                if (!this.element) return;
+                this.element.classList.add('animate-shake');
+                setTimeout(() => {
+                    this.element.classList.remove('animate-shake');
+                }, 400);
+            }
+        };
+
+        function cheerMascotManual() {
+            MascotController.cheer();
+            ConfettiEngine.spawn();
+            AudioEngine.speak(currentLanguage === 'ar' ? "مرحى!" : "Hooray!", currentLanguage);
+        }
+
+        // Bilingual Audio Engine with Bulletproof Local Fallback Support
+        const AudioEngine = {
+            warmupDone: false,
+            
+            warmup() {
+                if (this.warmupDone) return;
+                try {
+                    const silentAudio = new Audio();
+                    silentAudio.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA";
+                    silentAudio.volume = 0;
+                    silentAudio.play().catch(() => {});
+                    this.warmupDone = true;
+                } catch(e) {}
+            },
+
+            speak(text, langCode) {
+                this.warmup();
+                const speechLang = langCode || (currentLanguage === 'ar' ? 'ar' : 'en');
+                
+                if (ttsEngineMode === 'cloud') {
+                    const googleTTSUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${speechLang}&client=tw-ob&q=${encodeURIComponent(text)}`;
+                    
+                    try {
+                        const isolatorAudioNode = new Audio();
+                        isolatorAudioNode.referrerPolicy = "no-referrer";
+                        isolatorAudioNode.src = googleTTSUrl;
+                        
+                        isolatorAudioNode.onerror = () => {
+                            console.log("Cloud TTS error event triggered, falling back to local SpeechSynthesis");
+                            this.fallbackToLocal(text, langCode);
+                        };
+                        
+                        const playPromise = isolatorAudioNode.play();
+                        if (playPromise !== undefined) {
+                            playPromise.catch(error => {
+                                console.log("Cloud TTS play rejected, falling back to local SpeechSynthesis");
+                                this.fallbackToLocal(text, langCode);
+                            });
+                        }
+                    } catch (e) {
+                        console.log("Sync error playing cloud TTS, falling back to local");
+                        this.fallbackToLocal(text, langCode);
+                    }
+                } else {
+                    this.fallbackToLocal(text, langCode);
+                }
+            },
+
+            fallbackToLocal(text, langCode) {
+                if (!('speechSynthesis' in window)) return;
+                try {
+                    window.speechSynthesis.cancel();
+                    
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    const speechLang = langCode || (currentLanguage === 'ar' ? 'ar-SA' : 'en-US');
+                    utterance.lang = speechLang;
+                    
+                    if (window.speechSynthesis.getVoices) {
+                        const voices = window.speechSynthesis.getVoices();
+                        let voice = voices.find(v => v.lang === speechLang);
+                        if (!voice) {
+                            const targetPrefix = speechLang.split('-')[0].toLowerCase();
+                            voice = voices.find(v => v.lang.toLowerCase().startsWith(targetPrefix));
+                        }
+                        if (voice) {
+                            utterance.voice = voice;
+                        }
+                    }
+                    
+                    if (!window.activeUtterances) window.activeUtterances = [];
+                    window.activeUtterances.push(utterance);
+                    
+                    utterance.onend = () => {
+                        const idx = window.activeUtterances.indexOf(utterance);
+                        if (idx > -1) window.activeUtterances.splice(idx, 1);
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                } catch (e) {
+                    console.log("Local speech synthesis failed.");
+                }
+            }
+        };
+
+        // Cache browser voices if updated dynamically
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                console.log("Voices loaded successfully.");
+            };
+        }
+
+        // Splash Screen Language Switcher
+        function setSplashLanguage(lang) {
+            currentLanguage = lang;
+            const arBtn = document.getElementById('splash-lang-ar');
+            const enBtn = document.getElementById('splash-lang-en');
+            const startText = document.getElementById('splash-start-text');
+            
+            if (lang === 'ar') {
+                if (arBtn) arBtn.className = "px-3 py-1 rounded-xl text-xs font-black bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-sm transition-all";
+                if (enBtn) enBtn.className = "px-3 py-1 rounded-xl text-xs font-black text-slate-600 hover:bg-white transition-all";
+                if (startText) startText.innerText = locales.ar.splashStart;
+            } else {
+                if (enBtn) enBtn.className = "px-3 py-1 rounded-xl text-xs font-black bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-sm transition-all";
+                if (arBtn) arBtn.className = "px-3 py-1 rounded-xl text-xs font-black text-slate-600 hover:bg-white transition-all";
+                if (startText) startText.innerText = locales.en.splashStart;
+            }
+            
+            switchLanguage(lang);
+        }
+
+        // Dismiss Splash Screen and start magical journey
+        function dismissSplashScreen() {
+            AudioEngine.warmup();
+            
+            const introSpeech = currentLanguage === 'ar' ? "مرحباً بكم في عالم الحروف السحري!" : "Welcome to the magical world of alphabets!";
+            AudioEngine.speak(introSpeech);
+            
+            ConfettiEngine.spawn();
+            MascotController.cheer();
+            
+            const splash = document.getElementById('splash-screen');
+            if (splash) {
+                splash.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    const guidanceText = locales[currentLanguage].guideExplore;
+                    AudioEngine.speak(guidanceText);
+                }, 700);
+            }
+        }
+
+        // Compact Toggle Voice Engine Mode function (No-Dropdown approach)
+        function toggleTtsEngine() {
+            if (ttsEngineMode === 'cloud') {
+                ttsEngineMode = 'local';
+            } else {
+                ttsEngineMode = 'cloud';
+            }
+            updateVoiceEngineUI();
+            
+            const confirmText = currentLanguage === 'ar' ? "تم التغيير" : "Changed";
+            AudioEngine.speak(confirmText);
+        }
+
+        function updateVoiceEngineUI() {
+            const iconContainer = document.getElementById('tts-engine-icon-container');
+            const statusIndicator = document.getElementById('tts-icon-status');
+            const btnTts = document.getElementById('btn-tts-toggle');
+            
+            if (!iconContainer || !statusIndicator || !btnTts) return;
+            
+            const isAr = currentLanguage === 'ar';
+            
+            if (ttsEngineMode === 'cloud') {
+                iconContainer.innerHTML = `<i class="fa-solid fa-cloud text-sky-600" style="font-size: 14px;"></i>`;
+                statusIndicator.innerHTML = `
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                `;
+                btnTts.title = isAr ? "صوت سحابي سريع نشط ☁️" : "Fast Cloud Voice active ☁️";
+            } else {
+                iconContainer.innerHTML = `<i class="fa-solid fa-desktop text-indigo-600" style="font-size: 14px;"></i>`;
+                statusIndicator.innerHTML = `
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
+                `;
+                btnTts.title = isAr ? "صوت محلي من الجهاز نشط 🖥️" : "Local Device Voice active 🖥️";
+            }
+        }
+
+        // Safety translation helper to prevent Javascript TypeError crashes
+        function setTxt(id, text) {
+            const el = document.getElementById(id);
+            if (el) el.innerText = text;
+        }
+
+        // Switch Language controller
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            activeDatabase = (lang === 'ar') ? arabicLetters : englishLetters;
+            
+            if (lang === 'en') {
+                document.body.classList.add('english-mode');
+                document.body.dir = 'ltr';
+                const enBtn = document.getElementById('btn-lang-en');
+                if (enBtn) enBtn.className = "px-2.5 py-1.5 rounded-xl font-black text-xs md:text-sm transition-all duration-300 flex items-center gap-1 bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-sm";
+                const arBtn = document.getElementById('btn-lang-ar');
+                if (arBtn) arBtn.className = "px-2.5 py-1.5 rounded-xl font-black text-xs md:text-sm transition-all duration-300 flex items-center gap-1 text-slate-600 hover:bg-slate-50";
+            } else {
+                document.body.classList.remove('english-mode');
+                document.body.dir = 'rtl';
+                const arBtn = document.getElementById('btn-lang-ar');
+                if (arBtn) arBtn.className = "px-2.5 py-1.5 rounded-xl font-black text-xs md:text-sm transition-all duration-300 flex items-center gap-1 bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-sm";
+                const enBtn = document.getElementById('btn-lang-en');
+                if (enBtn) enBtn.className = "px-2.5 py-1.5 rounded-xl font-black text-xs md:text-sm transition-all duration-300 flex items-center gap-1 text-slate-600 hover:bg-slate-50";
+            }
+
+            const translation = locales[lang];
+            if (!translation) return;
+
+            setTxt('app-title', translation.title);
+            setTxt('app-subtitle', translation.subtitle);
+            
+            const expBtn = document.getElementById('tab-btn-explore');
+            if (expBtn && expBtn.querySelector('span')) expBtn.querySelector('span').innerText = translation.tabExplore;
+            const traceBtn = document.getElementById('tab-btn-trace');
+            if (traceBtn && traceBtn.querySelector('span')) traceBtn.querySelector('span').innerText = translation.tabTrace;
+            const matchBtn = document.getElementById('tab-btn-match');
+            if (matchBtn && matchBtn.querySelector('span')) matchBtn.querySelector('span').innerText = translation.tabMatch;
+            const catchBtn = document.getElementById('tab-btn-catch');
+            if (catchBtn && catchBtn.querySelector('span')) catchBtn.querySelector('span').innerText = translation.tabCatch;
+            
+            setTxt('exp-title', translation.expTitle);
+            setTxt('exp-desc', translation.expDesc);
+            setTxt('trace-title', translation.traceTitle);
+            setTxt('trace-desc', translation.traceDesc);
+            setTxt('trace-sel-lbl', translation.traceSelLbl);
+            setTxt('trace-btn-demo', translation.traceBtnDemo);
+            setTxt('trace-btn-clear', translation.traceBtnClear);
+            setTxt('trace-brush-lbl', translation.traceBrushLbl);
+
+            setTxt('match-title', translation.matchTitle);
+            setTxt('match-desc', translation.matchDesc);
+            setTxt('match-lbl-score', translation.matchScore);
+            setTxt('match-lbl-q', translation.matchQ);
+            
+            const matchListenBtn = document.getElementById('match-btn-listen');
+            if (matchListenBtn && matchListenBtn.querySelector('span')) {
+                matchListenBtn.querySelector('span').innerText = translation.matchBtnListen;
+            }
+
+            setTxt('catch-title', translation.catchTitle);
+            setTxt('catch-desc', translation.catchDesc);
+            setTxt('catch-lbl-score', translation.catchScore);
+            setTxt('catch-lbl-miss', translation.catchMiss);
+            setTxt('catch-lbl-target', translation.catchTarget);
+            setTxt('catch-over-title', translation.catchOverTitle);
+            setTxt('catch-over-desc', translation.catchOverDesc);
+            setTxt('catch-over-lbl-score', translation.catchOverScore);
+            
+            const catchRestartBtn = document.getElementById('catch-btn-restart');
+            if (catchRestartBtn && catchRestartBtn.querySelector('span')) {
+                catchRestartBtn.querySelector('span').innerText = translation.catchBtnRestart;
+            }
+
+            setTxt('footer-text', translation.footerText);
+
+            updateVoiceEngineUI();
+            renderExploreCarousel();
+            renderTraceLetterSelector();
+            resetMatchGame();
+            
+            if (currentActiveTab === 'catch') {
+                startCatchGame();
+            }
+        }
+
+        // Active screen router
+        function activateTab(tabId) {
+            currentActiveTab = tabId;
+
+            // Pause/stop the catch game if we are leaving it
+            if (tabId !== 'catch') {
+                catchGameActive = false;
+                if (catchAnimationId) {
+                    cancelAnimationFrame(catchAnimationId);
+                    catchAnimationId = null;
+                }
+            }
+
+            document.querySelectorAll('.tab-screen').forEach(screen => screen.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = "tab-btn py-2.5 px-1.5 rounded-xl font-black text-[11px] md:text-sm flex flex-col sm:flex-row items-center justify-center gap-1 transition-all text-slate-700 hover:bg-white/50";
+            });
+
+            const currentScreen = document.getElementById(`screen-${tabId}`);
+            if (currentScreen) currentScreen.classList.remove('hidden');
+            const currentTabBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (currentTabBtn) {
+                currentTabBtn.className = "tab-btn py-2.5 px-1.5 rounded-xl font-black text-[11px] md:text-sm flex flex-col sm:flex-row items-center justify-center gap-1 transition-all bg-white text-slate-800 shadow-sm border-b-2 border-sky-400";
+            }
+
+            const guidanceText = locales[currentLanguage][`guide${tabId.charAt(0).toUpperCase() + tabId.slice(1)}`];
+            if (guidanceText) {
+                AudioEngine.speak(guidanceText);
+            }
+
+            if (tabId === 'trace') {
+                setTimeout(() => {
+                    initTracingCanvas();
+                    if (activeDatabase && activeDatabase.length > 0) {
+                        selectTraceLetter(activeDatabase[0].letter);
+                    }
+                }, 100);
+            } else if (tabId === 'match') {
+                resetMatchGame();
+            } else if (tabId === 'catch') {
+                startCatchGame();
+            }
+        }
+
+        // Carousel Explore system with Direct Tap-to-Learn
+        function renderExploreCarousel() {
+            const viewport = document.getElementById('carousel-viewport');
+            if (!viewport) return;
+            viewport.innerHTML = "";
+            
+            activeDatabase.forEach((item, index) => {
+                const card = document.createElement('button');
+                card.className = `letter-card bubbly-btn bg-gradient-to-br ${item.color || 'from-sky-50 to-sky-100'} border-4 p-5 flex flex-col items-center justify-between gap-3 hover:shadow-lg shrink-0 w-36 sm:w-44 h-[85%] max-h-76 min-h-[180px] transition-all duration-300`;
+                
+                card.onclick = () => {
+                    playExploreCardInline(index, card);
+                };
+
+                const highlightedText = getHighlightedWord(item.word, item.letter);
+
+                card.innerHTML = `
+                    <span class="letter-char-display text-3xl sm:text-4xl md:text-5xl font-black drop-shadow-sm select-none transition-all">${item.letter}</span>
+                    <span class="emoji-display text-5xl sm:text-6xl md:text-7xl filter drop-shadow-sm select-none transform transition hover:scale-110 duration-200">${item.emoji}</span>
+                    <span class="word-badge-display text-xs md:text-sm font-black bg-white/95 py-1 px-3.5 rounded-full shadow-sm select-none border border-sky-100">${highlightedText}</span>
+                `;
+                viewport.appendChild(card);
+            });
+            viewport.scrollLeft = 0;
+        }
+
+        // Tapping direct exploration play sequence
+        function playExploreCardInline(index, cardElement) {
+            const item = activeDatabase[index];
+            if (!item) return;
+
+            document.querySelectorAll('.letter-card').forEach(c => {
+                c.classList.remove('ring-4', 'ring-amber-400', 'scale-105');
+            });
+
+            cardElement.classList.add('ring-4', 'ring-amber-400', 'scale-105');
+
+            const emojiSpan = cardElement.querySelector('.emoji-display');
+            if (emojiSpan) {
+                emojiSpan.classList.remove('animate-wiggle');
+                void emojiSpan.offsetWidth; 
+                emojiSpan.classList.add('animate-wiggle');
+            }
+
+            AudioEngine.speak(item.letter);
+
+            setTimeout(() => {
+                if (cardElement.classList.contains('ring-4')) {
+                    AudioEngine.speak(item.word);
+                    MascotController.cheer();
+                    ConfettiEngine.spawn();
+                }
+            }, 950);
+        }
+
+        function scrollCarousel(direction) {
+            const viewport = document.getElementById('carousel-viewport');
+            if (!viewport) return;
+            
+            const step = viewport.clientWidth * 0.6;
+            viewport.scrollBy({
+                left: step * direction,
+                behavior: 'smooth'
+            });
+        }
+
+        function getHighlightedWord(word, letter) {
+            if (word.startsWith(letter)) {
+                return `<span class="text-rose-500 font-extrabold underline decoration-wavy decoration-rose-300">${letter}</span>${word.substring(letter.length)}`;
+            }
+            const idx = word.indexOf(letter);
+            if (idx !== -1) {
+                return `${word.substring(0, idx)}<span class="text-rose-500 font-extrabold underline decoration-wavy decoration-rose-300">${letter}</span>${word.substring(idx + letter.length)}`;
+            }
+            return word;
+        }
+
+        // Handwriting Smart Tracing canvas variables
+        let traceCanvas, traceCtx;
+        let guideCanvas, guideCtx;
+        let isDrawing = false;
+        let currentTraceLetter = null;
+        let brushColor = '#10b981';
+        let userDrawingPath = [];
+
+        function initTracingCanvas() {
+            traceCanvas = document.getElementById('drawing-canvas');
+            if (!traceCanvas) return;
+            traceCtx = traceCanvas.getContext('2d');
+            guideCanvas = document.getElementById('guide-canvas');
+            if (!guideCanvas) return;
+            guideCtx = guideCanvas.getContext('2d');
+
+            if (window.tracingEventsInitialized) return;
+
+            traceCanvas.addEventListener('mousedown', startDrawing);
+            traceCanvas.addEventListener('mousemove', draw);
+            traceCanvas.addEventListener('mouseup', stopDrawing);
+            traceCanvas.addEventListener('mouseleave', stopDrawing);
+
+            traceCanvas.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const touch = e.touches[0];
+                const rect = traceCanvas.getBoundingClientRect();
+                startDrawing({ clientX: touch.clientX, clientY: touch.clientY });
+            }, { passive: false });
+            traceCanvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                const touch = e.touches[0];
+                draw({ clientX: touch.clientX, clientY: touch.clientY });
+            }, { passive: false });
+            traceCanvas.addEventListener('touchend', stopDrawing);
+
+            window.tracingEventsInitialized = true;
+        }
+
+        function renderTraceLetterSelector() {
+            const container = document.getElementById('trace-letter-selector');
+            if (!container) return;
+            container.innerHTML = "";
+            activeDatabase.forEach(item => {
+                const btn = document.createElement('button');
+                btn.id = `trace-sel-${item.letter}`;
+                btn.className = "w-8 h-8 rounded-lg font-black flex items-center justify-center border-2 border-slate-100 bg-white text-slate-700 hover:bg-sky-100/50 transition-all shadow-sm text-xs";
+                btn.innerText = item.letter;
+                btn.onclick = () => selectTraceLetter(item.letter);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectTraceLetter(letterChar) {
+            currentTraceLetter = activeDatabase.find(i => i.letter === letterChar);
+            if (!currentTraceLetter) return;
+
+            document.querySelectorAll('#trace-letter-selector button').forEach(b => {
+                b.className = "w-8 h-8 rounded-lg font-black flex items-center justify-center border-2 border-slate-100 bg-white text-slate-700 hover:bg-sky-100/50 transition-all shadow-sm text-xs";
+            });
+            const selectedBtn = document.getElementById(`trace-sel-${letterChar}`);
+            if (selectedBtn) {
+                selectedBtn.className = "w-8 h-8 rounded-lg font-black flex items-center justify-center border-2 border-amber-400 bg-amber-50 text-amber-800 transition-all shadow-sm text-xs";
+            }
+
+            clearTracingCanvas();
+            drawLetterGuidePath();
+            AudioEngine.speak(currentTraceLetter.letter);
+        }
+
+        function drawLetterGuidePath() {
+            if (!guideCtx || !currentTraceLetter) return;
+            guideCtx.clearRect(0, 0, guideCanvas.width, guideCanvas.height);
+
+            guideCtx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+            guideCtx.lineWidth = 36;
+            guideCtx.lineCap = 'round';
+            guideCtx.lineJoin = 'round';
+
+            const strokeLines = currentTraceLetter.path;
+            strokeLines.forEach(line => {
+                guideCtx.beginPath();
+                for (let i = 0; i < line.length; i += 2) {
+                    if (i === 0) guideCtx.moveTo(line[i], line[i+1]);
+                    else guideCtx.lineTo(line[i], line[i+1]);
+                }
+                guideCtx.stroke();
+            });
+
+            guideCtx.strokeStyle = '#818cf8';
+            guideCtx.lineWidth = 6;
+            guideCtx.setLineDash([8, 8]);
+            strokeLines.forEach(line => {
+                guideCtx.beginPath();
+                for (let i = 0; i < line.length; i += 2) {
+                    if (i === 0) guideCtx.moveTo(line[i], line[i+1]);
+                    else guideCtx.lineTo(line[i], line[i+1]);
+                }
+                guideCtx.stroke();
+            });
+            guideCtx.setLineDash([]); 
+
+            strokeLines.forEach(line => {
+                if (line.length >= 2) {
+                    guideCtx.fillStyle = '#10b981';
+                    guideCtx.beginPath();
+                    guideCtx.arc(line[0], line[1], 10, 0, Math.PI * 2);
+                    guideCtx.fill();
+                    
+                    guideCtx.strokeStyle = '#ffffff';
+                    guideCtx.lineWidth = 3;
+                    guideCtx.beginPath();
+                    guideCtx.arc(line[0], line[1], 12, 0, Math.PI * 2);
+                    guideCtx.stroke();
+                }
+            });
+        }
+
+        function clearAllTracingTimeouts() {
+            tracingTimeouts.forEach(id => clearTimeout(id));
+            tracingTimeouts = [];
+        }
+
+        function triggerTracingDemo() {
+            if (!currentTraceLetter || !traceCtx) return;
+            clearTracingCanvas();
+            clearAllTracingTimeouts();
+            
+            let strokeIdx = 0;
+            const strokeLines = currentTraceLetter.path;
+            
+            function animateLineSegment(line, stepIdx, callback) {
+                if (stepIdx >= line.length / 2) {
+                    callback();
+                    return;
+                }
+                
+                traceCtx.strokeStyle = 'rgba(251, 191, 36, 0.9)';
+                traceCtx.lineWidth = 20; 
+                traceCtx.lineCap = 'round';
+                traceCtx.lineJoin = 'round';
+
+                const fromX = line[(stepIdx - 1) * 2];
+                const fromY = line[(stepIdx - 1) * 2 + 1];
+                const toX = line[stepIdx * 2];
+                const toY = line[stepIdx * 2 + 1];
+
+                traceCtx.beginPath();
+                traceCtx.moveTo(fromX, fromY);
+                traceCtx.lineTo(toX, toY);
+                traceCtx.stroke();
+
+                ConfettiEngine.spawn(toX + traceCanvas.getBoundingClientRect().left, toY + traceCanvas.getBoundingClientRect().top);
+
+                const tid = setTimeout(() => {
+                    animateLineSegment(line, stepIdx + 1, callback);
+                }, 100);
+                tracingTimeouts.push(tid);
+            }
+
+            function playNextStroke() {
+                if (strokeIdx >= strokeLines.length) {
+                    AudioEngine.speak(currentTraceLetter.letter);
+                    MascotController.cheer();
+                    return;
+                }
+                const currentStroke = strokeLines[strokeIdx];
+                if (currentStroke.length >= 4) {
+                    animateLineSegment(currentStroke, 1, () => {
+                        strokeIdx++;
+                        const tid = setTimeout(playNextStroke, 180);
+                        tracingTimeouts.push(tid);
+                    });
+                } else if (currentStroke.length === 2) {
+                    traceCtx.fillStyle = 'rgba(251, 191, 36, 0.9)';
+                    traceCtx.beginPath();
+                    traceCtx.arc(currentStroke[0], currentStroke[1], 10, 0, Math.PI * 2);
+                    traceCtx.fill();
+                    strokeIdx++;
+                    const tid = setTimeout(playNextStroke, 180);
+                    tracingTimeouts.push(tid);
+                }
+            }
+            playNextStroke();
+        }
+
+        function clearTracingCanvas() {
+            if (traceCtx) {
+                traceCtx.clearRect(0, 0, traceCanvas.width, traceCanvas.height);
+            }
+            clearAllTracingTimeouts();
+            userDrawingPath = [];
+        }
+
+        function setBrushColor(colorHex) {
+            brushColor = colorHex;
+            const brushDot = document.getElementById('trace-brush-dot');
+            if (brushDot) brushDot.style.backgroundColor = colorHex;
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            traceCtx.strokeStyle = brushColor;
+            traceCtx.lineWidth = 20; 
+            traceCtx.lineCap = 'round';
+            traceCtx.lineJoin = 'round';
+            
+            const rect = traceCanvas.getBoundingClientRect();
+            const x = (e.clientX - rect.left) * (traceCanvas.width / rect.width);
+            const y = (e.clientY - rect.top) * (traceCanvas.height / rect.height);
+            
+            traceCtx.beginPath();
+            traceCtx.moveTo(x, y);
+            userDrawingPath.push({ x, y });
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const rect = traceCanvas.getBoundingClientRect();
+            const x = (e.clientX - rect.left) * (traceCanvas.width / rect.width);
+            const y = (e.clientY - rect.top) * (traceCanvas.height / rect.height);
+            
+            traceCtx.lineTo(x, y);
+            traceCtx.stroke();
+            userDrawingPath.push({ x, y });
+
+            if (Math.random() < 0.1) {
+                ConfettiEngine.spawn(e.clientX, e.clientY);
+            }
+        }
+
+        function stopDrawing() {
+            if (!isDrawing) return;
+            isDrawing = false;
+        }
+
+        // Match Game Logic
+        let matchScore = 0;
+        let matchIndex = 1;
+        let matchTargetItem = null;
+        const totalMatchQuestions = 5;
+
+        function resetMatchGame() {
+            if (matchTimeoutId) {
+                clearTimeout(matchTimeoutId);
+                matchTimeoutId = null;
+            }
+            matchScore = 0;
+            matchIndex = 1;
+            const scoreEl = document.getElementById('match-score');
+            if (scoreEl) scoreEl.innerText = matchScore;
+            loadNewMatchQuestion();
+        }
+
+        function loadNewMatchQuestion() {
+            const idxEl = document.getElementById('match-current-idx');
+            if (idxEl) idxEl.innerText = `${matchIndex}/${totalMatchQuestions}`;
+            
+            if (!activeDatabase || activeDatabase.length === 0) return;
+            const randomPick = activeDatabase[Math.floor(Math.random() * activeDatabase.length)];
+            matchTargetItem = randomPick;
+
+            const letterCard = document.getElementById('match-letter-card');
+            if (letterCard) letterCard.innerText = matchTargetItem.letter;
+            
+            const correctChoice = { word: matchTargetItem.word, emoji: matchTargetItem.emoji, correct: true };
+            const choices = [correctChoice];
+
+            const potentialWrongs = activeDatabase.filter(item => item.letter !== matchTargetItem.letter);
+            const shuffledWrongs = potentialWrongs.sort(() => 0.5 - Math.random());
+            
+            for (let i = 0; i < Math.min(3, shuffledWrongs.length); i++) {
+                choices.push({
+                    word: shuffledWrongs[i].word,
+                    emoji: shuffledWrongs[i].emoji,
+                    correct: false
+                });
+            }
+
+            const randomizedChoices = choices.sort(() => 0.5 - Math.random());
+
+            const container = document.getElementById('match-choices-container');
+            if (!container) return;
+            container.innerHTML = "";
+            
+            randomizedChoices.forEach(item => {
+                const button = document.createElement('button');
+                button.className = "bubbly-btn bg-gradient-to-br from-white to-sky-50 border-4 border-sky-100 hover:border-indigo-400 p-2 sm:p-3 rounded-2xl sm:rounded-3xl flex flex-col items-center justify-center gap-1 sm:gap-2 w-full h-full transition-all duration-200 shadow-md";
+                button.onclick = () => submitMatchAnswer(item, button);
+                button.innerHTML = `
+                    <span class="text-4xl sm:text-5xl lg:text-7xl filter drop-shadow-md transform hover:scale-110 transition duration-150 select-none">${item.emoji}</span>
+                    <span class="text-[10px] sm:text-xs lg:text-lg font-black text-slate-800 bg-slate-100/80 px-3 sm:px-4 py-0.5 sm:py-1 rounded-full select-none border border-slate-200">${item.word}</span>
+                `;
+                container.appendChild(button);
+            });
+
+            playMatchTargetAudio();
+        }
+
+        function playMatchTargetAudio() {
+            const splash = document.getElementById('splash-screen');
+            const isSplashVisible = splash && splash.style.display !== 'none';
+            if (matchTargetItem && !isSplashVisible) {
+                AudioEngine.speak(matchTargetItem.letter);
+            }
+        }
+
+        function submitMatchAnswer(choice, buttonElement) {
+            document.querySelectorAll('#match-choices-container button').forEach(b => b.disabled = true);
+
+            if (choice.correct) {
+                matchScore += 10;
+                const scoreEl = document.getElementById('match-score');
+                if (scoreEl) scoreEl.innerText = matchScore;
+                buttonElement.className = "bubbly-btn bg-gradient-to-br from-emerald-50 to-emerald-100 border-4 border-emerald-400 p-2 sm:p-3 rounded-2xl sm:rounded-3xl flex flex-col items-center justify-center gap-1 sm:gap-2 w-full h-full shadow-lg scale-102";
+                
+                const rect = buttonElement.getBoundingClientRect();
+                ConfettiEngine.spawn(rect.left + rect.width / 2, rect.top + rect.height / 2);
+                MascotController.cheer();
+
+                AudioEngine.speak(choice.word);
+            } else {
+                buttonElement.className = "bubbly-btn bg-gradient-to-br from-rose-50 to-rose-100 border-4 border-rose-400 p-2 sm:p-3 rounded-2xl sm:rounded-3xl flex flex-col items-center justify-center gap-1 sm:gap-2 w-full h-full animate-shake shadow-lg";
+                MascotController.shake();
+
+                document.querySelectorAll('#match-choices-container button').forEach(b => {
+                    const wordEl = b.querySelector('span:last-child');
+                    if (wordEl && wordEl.innerText === matchTargetItem.word) {
+                        b.className = "bubbly-btn bg-gradient-to-br from-emerald-50 to-emerald-100 border-4 border-emerald-400 p-2 sm:p-3 rounded-2xl sm:rounded-3xl flex flex-col items-center justify-center gap-1 sm:gap-2 w-full h-full";
+                    }
+                });
+                
+                AudioEngine.speak(matchTargetItem.letter);
+            }
+
+            if (matchTimeoutId) clearTimeout(matchTimeoutId);
+            matchTimeoutId = setTimeout(() => {
+                if (matchIndex < totalMatchQuestions) {
+                    matchIndex++;
+                    loadNewMatchQuestion();
+                } else {
+                    ConfettiEngine.spawn();
+                    MascotController.cheer();
+                    matchIndex = 1;
+                    loadNewMatchQuestion();
+                }
+            }, 1800);
+        }
+
+        // Catch Game (Balloons falling engine)
+        let catchCanvas, catchCtx;
+        let catchGameActive = false;
+        let catchScoreVal = 0;
+        let catchMissedVal = 0;
+        let catchTargetLetter = "";
+        let catchBasketX = 180;
+        const catchBasketWidth = 140; // Enlarged from 90 to 140 for easier catching
+        const catchBasketHeight = 36; // Enlarged from 28 to 36
+        let fallingBalloons = [];
+        let catchAnimationId = null;
+
+        function startCatchGame() {
+            catchCanvas = document.getElementById('catch-canvas');
+            if (!catchCanvas) return;
+            catchCtx = catchCanvas.getContext('2d');
+            
+            // Handle canvas buffering size once on load / resize instead of continuous polling
+            resizeCatchCanvas();
+
+            const overlay = document.getElementById('catch-gameover-overlay');
+            if (overlay) overlay.classList.add('hidden');
+            
+            catchGameActive = true;
+            catchScoreVal = 0;
+            catchMissedVal = 0;
+            fallingBalloons = [];
+            catchBasketX = catchCanvas.width / 2 - catchBasketWidth / 2;
+            
+            const cScoreEl = document.getElementById('catch-score');
+            if (cScoreEl) cScoreEl.innerText = catchScoreVal;
+            const cMissEl = document.getElementById('catch-missed');
+            if (cMissEl) cMissEl.innerText = `${catchMissedVal}/3`;
+
+            chooseNewCatchTarget();
+
+            if (!window.catchEventsInitialized) {
+                catchCanvas.addEventListener('mousemove', (e) => {
+                    const rect = catchCanvas.getBoundingClientRect();
+                    if (rect.width === 0) return;
+                    const relativeX = (e.clientX - rect.left) * (catchCanvas.width / rect.width);
+                    catchBasketX = relativeX - catchBasketWidth / 2;
+                    clampBasketPosition();
+                });
+
+                catchCanvas.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                    const touch = e.touches[0];
+                    const rect = catchCanvas.getBoundingClientRect();
+                    if (rect.width === 0) return;
+                    const relativeX = (touch.clientX - rect.left) * (catchCanvas.width / rect.width);
+                    catchBasketX = relativeX - catchBasketWidth / 2;
+                    clampBasketPosition();
+                }, { passive: false });
+
+                const btnLeft = document.getElementById('touch-btn-left');
+                const btnRight = document.getElementById('touch-btn-right');
+                
+                if (btnLeft) {
+                    btnLeft.onpointerdown = () => { window.isMovingLeft = true; };
+                    btnLeft.onpointerup = () => { window.isMovingLeft = false; };
+                    btnLeft.onpointerleave = () => { window.isMovingLeft = false; };
+                }
+                
+                if (btnRight) {
+                    btnRight.onpointerdown = () => { window.isMovingRight = true; };
+                    btnRight.onpointerup = () => { window.isMovingRight = false; };
+                    btnRight.onpointerleave = () => { window.isMovingRight = false; };
+                }
+
+                window.catchEventsInitialized = true;
+            }
+
+            const restartBtn = document.getElementById('catch-btn-restart');
+            if (restartBtn) {
+                restartBtn.onclick = startCatchGame;
+            }
+
+            if (catchAnimationId) cancelAnimationFrame(catchAnimationId);
+            runCatchLoop();
+        }
+
+        function resizeCatchCanvas() {
+            if (!catchCanvas) return;
+            const rect = catchCanvas.getBoundingClientRect();
+            if (rect.width > 0 && rect.height > 0) {
+                catchCanvas.width = rect.width;
+                catchCanvas.height = rect.height;
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            if (currentActiveTab === 'catch') {
+                resizeCatchCanvas();
+                clampBasketPosition();
+            }
+        });
+
+        function clampBasketPosition() {
+            if (!catchCanvas) return;
+            if (catchBasketX < 0) catchBasketX = 0;
+            if (catchBasketX > catchCanvas.width - catchBasketWidth) {
+                catchBasketX = catchCanvas.width - catchBasketWidth;
+            }
+        }
+
+        function chooseNewCatchTarget() {
+            if (!activeDatabase || activeDatabase.length === 0) return;
+            const randomPick = activeDatabase[Math.floor(Math.random() * activeDatabase.length)];
+            catchTargetLetter = randomPick.letter;
+            const targetLetterEl = document.getElementById('catch-target-letter');
+            if (targetLetterEl) targetLetterEl.innerText = catchTargetLetter;
+            
+            const splash = document.getElementById('splash-screen');
+            const isSplashVisible = splash && splash.style.display !== 'none';
+            if (!isSplashVisible) {
+                AudioEngine.speak(catchTargetLetter);
+            }
+        }
+
+        function spawnBalloon() {
+            if (!catchCanvas || !activeDatabase || activeDatabase.length === 0) return;
+            const isTarget = Math.random() > 0.60;
+            let letterChar = catchTargetLetter;
+            if (!isTarget) {
+                const otherItems = activeDatabase.filter(i => i.letter !== catchTargetLetter);
+                if (otherItems.length > 0) {
+                    letterChar = otherItems[Math.floor(Math.random() * otherItems.length)].letter;
+                }
+            }
+
+            const hues = [350, 200, 145, 45, 275, 190];
+            const randomHue = hues[Math.floor(Math.random() * hues.length)];
+
+            fallingBalloons.push({
+                x: Math.random() * (catchCanvas.width - 80) + 40,
+                y: -40,
+                speed: 0.6 + Math.random() * 0.6, // Slower fall speed for 3-6 year olds
+                radius: 28, // Enlarged balloon radius from 18 to 28 for easier viewing and catching
+                letter: letterChar,
+                color: `hsl(${randomHue}, 95%, 68%)`,
+                swayAmp: Math.random() * 1.2 + 0.4,
+                swayFreq: Math.random() * 0.03 + 0.01,
+                swaySeed: Math.random() * 100
+            });
+        }
+
+        function runCatchLoop() {
+            if (!catchGameActive || !catchCanvas) return;
+
+            const rect = catchCanvas.getBoundingClientRect();
+            // Prevent execution and division by zero/flickering if tab is hidden
+            if (rect.width === 0 || rect.height === 0) {
+                catchAnimationId = requestAnimationFrame(runCatchLoop);
+                return;
+            }
+
+            catchCtx.clearRect(0, 0, catchCanvas.width, catchCanvas.height);
+
+            if (window.isMovingLeft) catchBasketX -= 5;
+            if (window.isMovingRight) catchBasketX += 5;
+            clampBasketPosition();
+
+            catchCtx.fillStyle = '#f59e0b';
+            catchCtx.beginPath();
+            catchCtx.roundRect(catchBasketX, catchCanvas.height - catchBasketHeight - 8, catchBasketWidth, catchBasketHeight, 10);
+            catchCtx.fill();
+            
+            catchCtx.strokeStyle = '#d97706';
+            catchCtx.lineWidth = 3;
+            catchCtx.beginPath();
+            catchCtx.roundRect(catchBasketX, catchCanvas.height - catchBasketHeight - 8, catchBasketWidth, catchBasketHeight, 10);
+            catchCtx.stroke();
+
+            if (Math.random() < 0.02) {
+                spawnBalloon();
+            }
+
+            for (let i = fallingBalloons.length - 1; i >= 0; i--) {
+                const b = fallingBalloons[i];
+                b.y += b.speed;
+                b.x += Math.sin(b.y * b.swayFreq + b.swaySeed) * b.swayAmp * 0.12;
+
+                catchCtx.fillStyle = b.color;
+                catchCtx.beginPath();
+                catchCtx.ellipse(b.x, b.y, b.radius, b.radius * 1.25, 0, 0, Math.PI * 2);
+                catchCtx.fill();
+
+                catchCtx.beginPath();
+                catchCtx.moveTo(b.x, b.y + b.radius * 1.25);
+                catchCtx.lineTo(b.x - 6, b.y + b.radius * 1.25 + 7);
+                catchCtx.lineTo(b.x + 6, b.y + b.radius * 1.25 + 7);
+                catchCtx.closePath();
+                catchCtx.fillStyle = b.color;
+                catchCtx.fill();
+
+                catchCtx.strokeStyle = 'rgba(71, 85, 105, 0.4)';
+                catchCtx.lineWidth = 3;
+                catchCtx.beginPath();
+                catchCtx.moveTo(b.x, b.y + b.radius * 1.25 + 7);
+                catchCtx.quadraticCurveTo(b.x - 7, b.y + b.radius * 1.25 + 16, b.x, b.y + b.radius * 1.25 + 28);
+                catchCtx.stroke();
+
+                catchCtx.fillStyle = '#ffffff';
+                catchCtx.font = 'bold 26px Cairo, Fredoka'; // Enlarged font from 18px to 26px for maximum child legibility
+                catchCtx.textBaseline = 'middle';
+                catchCtx.textAlign = 'center';
+                catchCtx.fillText(b.letter, b.x, b.y - 1);
+
+                const basketTop = catchCanvas.height - catchBasketHeight - 10;
+                if (b.y + b.radius * 1.25 >= basketTop && 
+                    b.x >= catchBasketX - 5 && 
+                    b.x <= catchBasketX + catchBasketWidth + 5) {
+                    
+                    if (b.letter === catchTargetLetter) {
+                        catchScoreVal += 10;
+                        const scoreEl = document.getElementById('catch-score');
+                        if (scoreEl) scoreEl.innerText = catchScoreVal;
+                        
+                        const rectC = catchCanvas.getBoundingClientRect();
+                        ConfettiEngine.spawn(b.x + rectC.left, basketTop + rectC.top);
+                        MascotController.cheer();
+
+                        AudioEngine.speak(b.letter);
+                        chooseNewCatchTarget();
+                    } else {
+                        catchMissedVal++;
+                        const missedEl = document.getElementById('catch-missed');
+                        if (missedEl) missedEl.innerText = `${catchMissedVal}/3`;
+                        MascotController.shake();
+                        AudioEngine.speak(b.letter);
+                    }
+                    fallingBalloons.splice(i, 1);
+                    continue;
+                }
+
+                if (b.y - b.radius * 1.25 > catchCanvas.height) {
+                    if (b.letter === catchTargetLetter) {
+                        catchMissedVal++;
+                        const missedEl = document.getElementById('catch-missed');
+                        if (missedEl) missedEl.innerText = `${catchMissedVal}/3`;
+                        MascotController.shake();
+                        AudioEngine.speak(b.letter);
+                    }
+                    fallingBalloons.splice(i, 1);
+                }
+            }
+
+            if (catchMissedVal >= 3) {
+                catchGameActive = false;
+                const finalEl = document.getElementById('catch-final-score');
+                if (finalEl) finalEl.innerText = catchScoreVal;
+                const overlay = document.getElementById('catch-gameover-overlay');
+                if (overlay) overlay.classList.remove('hidden');
+            }
+
+            catchAnimationId = requestAnimationFrame(runCatchLoop);
+        }
+
+        // Fullscreen API controls
+        function toggleFullscreen() {
+            try {
+                if (!document.fullscreenElement &&
+                    !document.webkitFullscreenElement &&
+                    !document.mozFullScreenElement &&
+                    !document.msFullscreenElement) {
+                    
+                    const docEl = document.documentElement;
+                    let requestPromise;
+                    
+                    if (docEl.requestFullscreen) {
+                        requestPromise = docEl.requestFullscreen();
+                    } else if (docEl.webkitRequestFullscreen) {
+                        requestPromise = docEl.webkitRequestFullscreen();
+                    } else if (docEl.mozRequestFullScreen) {
+                        requestPromise = docEl.mozRequestFullScreen();
+                    } else if (docEl.msRequestFullscreen) {
+                        requestPromise = docEl.msRequestFullscreen();
+                    }
+
+                    if (requestPromise && typeof requestPromise.catch === 'function') {
+                        requestPromise.catch(err => {
+                            console.warn("Fullscreen request rejected:", err);
+                            showFeedbackMessage(currentLanguage === 'ar' ? "الشاشة الكاملة غير مسموحة في هذا المتصفح 🔒" : "Fullscreen disallowed in this browser 🔒");
+                        });
+                    }
+                } else {
+                    let exitPromise;
+                    if (document.exitFullscreen) {
+                        exitPromise = document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        exitPromise = document.webkitExitFullscreen();
+                    } else if (document.mozCancelFullScreen) {
+                        exitPromise = document.mozCancelFullScreen();
+                    } else if (document.msExitFullscreen) {
+                        exitPromise = document.msExitFullscreen();
+                    }
+
+                    if (exitPromise && typeof exitPromise.catch === 'function') {
+                        exitPromise.catch(err => {
+                            console.warn("Exit fullscreen failed:", err);
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error("Fullscreen toggle error:", error);
+            }
+        }
+
+        function updateFullscreenUI() {
+            const btn = document.getElementById('btn-fullscreen');
+            if (!btn) return;
+            
+            const isFS = document.fullscreenElement || 
+                         document.webkitFullscreenElement || 
+                         document.mozFullScreenElement || 
+                         document.msFullscreenElement;
+                         
+            if (isFS) {
+                btn.innerHTML = `<i class="fas fa-compress text-xs"></i>`;
+                btn.classList.add('bg-amber-100', 'text-amber-800');
+                btn.classList.remove('bg-slate-100', 'text-slate-700');
+            } else {
+                btn.innerHTML = `<i class="fas fa-expand text-xs"></i>`;
+                btn.classList.remove('bg-amber-100', 'text-amber-800');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            }
+        }
+
+        document.addEventListener('fullscreenchange', updateFullscreenUI);
+        document.addEventListener('webkitfullscreenchange', updateFullscreenUI);
+        document.addEventListener('mozfullscreenchange', updateFullscreenUI);
+        document.addEventListener('MSFullscreenChange', updateFullscreenUI);
+
+        // Global Bootstrapper
+        window.onload = function() {
+            ConfettiEngine.init();
+            MascotController.init();
+            switchLanguage('ar');
+        };
+    </script>
+</body>
+</html>
